@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!selectedItem">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Event Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="detail-blk">
+    <h3 *ngIf="selectedItem">
+      {{selectedItem.title}}
+    </h3>
+    <p *ngIf="selectedItem">
+      {{selectedItem.desc}}
+    </p>
+    <span><b>Total tickets available: 70</b></span>
+    <button ion-button left small primary (click)="presentModal()">
+      Book my ticket
+    </button>
+  </div>
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons left>
+            <button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>Event App</ion-title>
+        <ion-buttons right>
+            <button ion-button (click)="pushPage()">
+                Sign up
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <h3>Login</h3>
+    <form (ngSubmit)="loginForm(log)" [formGroup]="logForm">
+        <ion-item>
+            <ion-label floating>Username</ion-label>
+            <ion-input type="text" name="username" formControlName="username" [(ngModel)]="log.username" [class.invalid]="!log.username.valid && (log.username.dirty || submitAttempt)"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!log.username.valid  && (log.username.dirty || submitAttempt)">
+            <p>Please enter username.</p>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" name="password" formControlName="password" [(ngModel)]="log.password" [class.invalid]="!log.password.valid && (log.password.dirty || submitAttempt)"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!log.password.valid  && (log.password.dirty || submitAttempt)">
+            <p>Please enter a password.</p>
+        </ion-item>
+        <button ion-button full type="submit">Submit</button>
+    </form>
+</ion-content>

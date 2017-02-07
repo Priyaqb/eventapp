@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons left>
+            <button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>Event App</ion-title>
+        <ion-buttons right>
+            <span>Welcome {{username}}</span>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <button ion-item *ngFor="let item of events; let i = index;">
+            <ion-thumbnail item-left>
+                <img src="../../assets/img/thumbnail.jpg">
+            </ion-thumbnail>
+            <h2>{{item.title}} 
+             </h2>
+            <button [attr.newColor]="item.addAttribute ? '' : null" ion-button item-right (click)="markFav(item, i)"><ion-icon name="star"></ion-icon></button>
+            <p>{{item.desc}}</p>
+            <button ion-button clear item-right (click)="itemTapped($event, item)">View</button>
+        </button>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons left>
+            <button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>Sign up</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <form (ngSubmit)="signupForm(signup)" [formGroup]="signUpForm">
+        <ion-item>
+            <ion-label floating>First Name</ion-label>
+            <ion-input type="text" formControlName="firstName" [class.invalid]="!signup.firstName.valid && (signup.firstName.dirty || submitAttempt)" [(ngModel)]="signup.firstName"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!signup.firstName.valid  && (signup.firstName.dirty || submitAttempt)">
+            <p>Please enter a first name.</p>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Last Name</ion-label>
+            <ion-input type="text" formControlName="lastName" [class.invalid]="!signup.lastName.valid && (signup.lastName.dirty || submitAttempt)" [(ngModel)]="signup.lastName"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!signup.lastName.valid  && (signup.lastName.dirty || submitAttempt)">
+            <p>Please enter a last name.</p>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" formControlName="password" [class.invalid]="!signup.password.valid && (signup.password.dirty || submitAttempt)" [(ngModel)]="signup.password"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!signup.password.valid  && (signup.password.dirty || submitAttempt)">
+            <p>Please enter a password.</p>
+        </ion-item>
+        <!-- <ion-item>
+      <ion-label floating>Profile Picture</ion-label>
+      <ion-input type="text"  [(ngModel)]="signup.progpic"></ion-input>
+    </ion-item> -->
+        <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="text" formControlName="email" [class.invalid]="!signup.email.valid && (signup.email.dirty || submitAttempt)" [(ngModel)]="signup.email"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!signup.email.valid  && (signup.email.dirty || submitAttempt)">
+            <p>Please enter an email.</p>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Phone Number</ion-label>
+            <ion-input type="text" formControlName="phone" [class.invalid]="!signup.phone.valid && (signup.phone.dirty || submitAttempt)" [(ngModel)]="signup.phone"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!signup.phone.valid  && (signup.phone.dirty || submitAttempt)">
+            <p>Please a valid phone number.</p>
+        </ion-item>
+        <button ion-button type="submit">Submit</button>
+    </form>
+</ion-content>
